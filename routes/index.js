@@ -9,6 +9,14 @@ router.get('/api/timestamp', (req, res) => {
   // for empty date strings, get the current date/time
   // Date.now() => current time in ms
   // new Date() => a new date object. with lots of properties and methods
+  const currentDate = newDate();
+  let date = currentDate.getDate();
+  let month = currentDate.getMonth();
+  let year = currentDate.getFullYear();
+
+  const date_string = date + "-" + month + "-" + year;
+
+  res.send(currentDate);
 });
 
 router.get('/api/timestamp/:date_string', (req, res) => {
